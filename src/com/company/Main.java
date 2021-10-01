@@ -4,30 +4,36 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        //Задача 4
-        /*
-        Написать программу, которая будет выполнять следующие действия:
-        1. Ввести три числа с клавиатуры x, y, z
-        2. Найти и вывести в консоль среднее арифметическое этих чисел.
-        3. Разделить среднее арифметическое на 2 и округлить в меньшую сторону
-        4. Если полученное число больше 3, то вывести на экран сообщение "Программа выполнена корректно"
-        */
+        //Задача 5
+          // 1. Ввести 2 числа с клавиатуры, затем один из символов ‘+’, ‘-’, ‘*’ или ‘/’.
+          // 2. зависимости от символа вывести в консоль результат выполнения соответствующей арифметической операции.
         //пункт 1
-        Scanner scanner = new Scanner(System.in);
-        double numX = scanner.nextDouble();
-        double numY = scanner.nextDouble();
-        double numZ = scanner.nextDouble();
-        //пункт 2
-        double average = (numX + numY + numZ) / 3;
-        System.out.println(average);
-        //пункт 3
-        double shareAverage = Math.floor(average / 2);
-        System.out.println(shareAverage);
-        //пункт 4
-        if (shareAverage > 3) {
-            System.out.println("Программа выполнена корректно");
-        }
+        Scanner scannerForCals = new Scanner(System.in);
+        double  numFirst = scannerForCals.nextInt();
+        String symbol = scannerForCals.next();
+        double  numSecond = scannerForCals.nextInt();
 
-    }
+        //пункт 2
+        switch (symbol) {
+            case "+":
+                System.out.println(numFirst + numSecond);
+                break;
+            case "-":
+                System.out.println(numFirst - numSecond);
+                break;
+            case "*":
+                System.out.println(numFirst * numSecond);
+                break;
+            case "/":
+                if (numSecond == 0) {
+                    System.out.println("На ноль делить нельзя");
+                } else {
+                    System.out.println(numFirst / numSecond);
+                }
+                break;
+            default:
+                System.out.println("Невыполнимая задача");
+        }
+        }
 }
 
